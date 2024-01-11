@@ -2272,7 +2272,9 @@ CPed::ProcessControl(void)
 								} else {
 									damage = 20.0f;
 								}
-
+#ifdef FIX_BUGS
+								damage *= CTimer::GetTimeStepFix();
+#endif
 								InflictDamage(collidingVeh, WEAPONTYPE_RAMMEDBYCAR, damage, PEDPIECE_TORSO, dir);
 								Say(SOUND_PED_DAMAGE);
 							}
