@@ -124,6 +124,16 @@ void LangJapSelect(int8 action)
 		FrontEndMenuManager.SaveSettings();
 	}
 }
+
+void LangTurSelect(int8 action)
+{
+	if(action == FEOPTION_ACTION_SELECT) {
+		FrontEndMenuManager.m_PrefsLanguage = CMenuManager::LANGUAGE_TURKISH;
+		FrontEndMenuManager.m_bFrontEnd_ReloadObrTxtGxt = true;
+		FrontEndMenuManager.InitialiseChangedLanguageSettings();
+		FrontEndMenuManager.SaveSettings();
+	}
+}
 #endif
 
 void
@@ -171,6 +181,14 @@ CustomFrontendOptionsPopulate(void)
 	if (fd = CFileMgr::OpenFile("text/russian.gxt")) {
 		if (fd2 = CFileMgr::OpenFile("models/fonts_r.txd")) {
 			FrontendOptionAddDynamic("FEL_RUS", 0, 0, MENUALIGN_CENTER, nil, nil, LangRusSelect, nil, nil);
+			CFileMgr::CloseFile(fd2);
+		}
+		CFileMgr::CloseFile(fd);
+	}
+
+	if(fd = CFileMgr::OpenFile("text/turkish.gxt")) {
+		if(fd2 = CFileMgr::OpenFile("models/fonts_t.txd")) {
+			FrontendOptionAddDynamic("FEL_TUR", 0, 0, MENUALIGN_CENTER, nil, nil, LangTurSelect, nil, nil);
 			CFileMgr::CloseFile(fd2);
 		}
 		CFileMgr::CloseFile(fd);

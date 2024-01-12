@@ -747,6 +747,7 @@ public:
 		LANGUAGE_POLISH,
 		LANGUAGE_RUSSIAN,
 		LANGUAGE_JAPANESE,
+		LANGUAGE_TURKISH
 #endif
 	};
 	bool GetIsMenuActive() {return !!m_bMenuActive;}

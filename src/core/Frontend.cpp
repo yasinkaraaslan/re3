@@ -2985,6 +2985,9 @@ CMenuManager::InitialiseChangedLanguageSettings()
 		case LANGUAGE_JAPANESE:
 			CFont::ReloadFonts(FONT_LANGSET_JAPANESE);
 			break;
+		case LANGUAGE_TURKISH:
+			CFont::ReloadFonts(FONT_LANGSET_TURKISH);
+			break;
 		default:
 			CFont::ReloadFonts(FONT_LANGSET_EFIGS);
 			break;
